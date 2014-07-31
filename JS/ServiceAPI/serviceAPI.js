@@ -148,6 +148,7 @@
             promise;
             temp_login = this.login;
             temp_url = this.baseURI;
+            temp_ajax = this.baseAjaxObj;
             for (i = 0, _len = requestObjArray.length; i < _len; i++) {
               k = requestObjArray[i];
               if (i === 0) {
@@ -155,7 +156,7 @@
               }
               promise = promise.pipe(function() {
                 var reqSender;
-                reqSender = new RequestSender(temp_url, temp_login);//for new valid context
+                reqSender = new RequestSender(temp_url, temp_login, temp_ajax);//for new valid context
                 return reqSender.sendRequestObj(requestObjArray.shift());
               });
             }
