@@ -7,7 +7,8 @@ This project contains a simple template and libraries for easy client developmen
 Because REST is a quite broad and simple API standard, this template is not restricted to Las2peer services (in fact the example uses another external service).
 The included libraries provide a simple way to manage authentication (currently only BASIC auth is supported) and send requests (synchronously and asynchronously).
 
-Among a template for a web based client, there is also a template for a ROLE widget (https://github.com/ROLE/ROLE/wiki/About-the-project).
+Among a template for a web based client, there is also a template for a ROLE widget 
+(Project:  https://github.com/rwth-acis/ROLE-SDK Wiki: https://github.com/ROLE/ROLE/wiki/About-the-project).
 A library provides very simple usage of inter widget communication.
 
 This project includes a small example both as a web page and as a widget, where a request is used to obtain random numbers to change the background color to a random color.
