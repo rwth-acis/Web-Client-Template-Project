@@ -46,7 +46,7 @@
           Simple class for request objects.
          */
         this.Request = (function() {
-          function Request(method, uri, content, callback, errorCallback) {
+          function Request(method, uri, content, callback, errorCallback, headers) {
             this.method = method;
             this.uri = uri;
             this.content = content;
@@ -55,6 +55,7 @@
             if (errorCallback == null) {
               errorCallback = function() {};
             }
+            this.headers=headers;
           }
 
           return Request;
@@ -94,7 +95,7 @@
             The errorCallback is optional.
            */
 
-          RequestSender.prototype.sendRequest = function(method, URI, content, callback, errorCallback) {
+          RequestSender.prototype.sendRequest = function(method, URI, content, callback, errorCallback, customHeaders) {
             var newAjax, requestURI;
             if (this.baseURI != null) {
               requestURI = encodeURI(this.baseURI + "/" + URI);
@@ -123,6 +124,9 @@
               }
             };
             $.extend(true, newAjax, this.baseAjaxObj);
+            if (customHeaders !== undefined && customHeaders !== null) {
+              $.extend(newAjax.headers, customHeaders);
+            }
             return $.ajax(newAjax);
           };
 
@@ -132,7 +136,7 @@
            */
 
           RequestSender.prototype.sendRequestObj = function(requestObj) {
-            return this.sendRequest(requestObj.method, requestObj.uri, requestObj.content, requestObj.callback, requestObj.errorCallback);
+            return this.sendRequest(requestObj.method, requestObj.uri, requestObj.content, requestObj.callback, requestObj.errorCallback, requestObj.headers);
           };
 
 
