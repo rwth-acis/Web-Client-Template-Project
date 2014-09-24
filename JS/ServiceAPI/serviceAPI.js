@@ -147,6 +147,9 @@
            */
 
           RequestSender.prototype.sendRequestsSync = function(requestObjArray, callback) {
+            if(requestObjArray==null || requestObjArray.length==0)
+              callback();
+              
             var chain, i, k, promise, temp_login, temp_url, _len;
             chain = $.Deferred();
             promise;
@@ -177,6 +180,9 @@
            */
 
           RequestSender.prototype.sendRequestsAsync = function(requestObjArray, callback) {
+            if(requestObjArray==null || requestObjArray.length==0)
+              callback();
+              
             var k, requests, i, _len;
             requests = [];
             for (i = 0, _len = requestObjArray.length; i < _len; i++) {
