@@ -106,6 +106,7 @@
               url: requestURI,
               method: method.toUpperCase(),
               data: content,
+              headers:{},
               error: function(xhr, errorType, error) {
                 var errorText;
                 errorText = error;
