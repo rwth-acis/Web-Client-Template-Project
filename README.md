@@ -1,3 +1,6 @@
+This Project is depricated. Please refer to the [las2peer Template Project](https://github.com/rwth-acis/LAS2peer-Template-Project) for further las2peer frontend code examples.
+=======================
+
 Web-Client-Template-Project
 =======================
 
